@@ -1,28 +1,36 @@
 /// Neil, Paulo Henrique, Willian Abdon
 
-#include <stdio.h>
 #include <windows.h>
-#include <stdlib.h>
+#include <stdio.h>
+#include <conio.h>
+#include <time.h>
 #include "supermarket.h"
 
 int main(){
-    int time, i, next;
+    int timer, next;
     char opt;
     tlista boxs;
 
     printf("-------------------------------------------------------------------------------------------------\n");
     printf("                                    SUPERT MARKET SIMULATOR                                      \n");
     printf("-------------------------------------------------------------------------------------------------\n\n");
+    printf("Quantidade de caixas                   [6]\n\n");
+    printf("Tempo para chegada de novo cliente     [1 - 5]\n\n");
+    printf("Quantidade de produtos                 [1 - 101]\n\n");
+    printf("Tempo de atendimento no caixa          [Produtos * 0.28]  (Arrendondado para cima) \n\n");
 
-    printf("[1] Start Simulation [2] Exit\n");
+    printf("[ENTER] Start Simulation               [ESC] Exit\n");
+    if((opt = getch()) == 27) return 0;
+    srand(time(NULL));
+
 
     startBoxs(&boxs);
-    inserir(&boxs);
+    inserir(&boxs, &next);
 
-    for(time = 0; time != -1; time++){
+    for(timer = 0; timer < 720; timer++){
 
-            if(next = rand() % 3  != 0)
-                inserir(&boxs);
+            if(next == 0)
+                inserir(&boxs, &next);
 
             system("cls");
             printf("-------------------------------------------------------------------------------------------------\n");
@@ -47,11 +55,8 @@ int main(){
             printf("   | Cx. 5 | "); imprimirFila(boxs, 6); printf("\n");
             printf("_________________________________________________________________________________________________\n\n");
 
-
-            printf("Pressione qualquer tecla para Avancar no tempo ou ESC para finalizar. ");
             countTime(&boxs);
-            printf("%d\n", time);
-            if((opt = getch()) == 27) time = -2;
+            next--;
     }
 
 
