@@ -1,9 +1,9 @@
-#Super Market Simulator
+# Super Market Simulator
 
-##Descrição
+## Descrição
 Um programa em C que que simula clientes acessando filas de vários caixas em um supermercado.
 
-##Alunos Envolvidos
+## Alunos Envolvidos
 * Paulo Henrique
 * William Abdon
 * Neil John
