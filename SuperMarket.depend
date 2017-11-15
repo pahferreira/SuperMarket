@@ -89,3 +89,19 @@
 	<stdlib.h>
 	<math.h>
 
+1510687850 source:c:\users\willian\documents\willian\git\supermarketsimulator\supermarket-code.c
+	"supermarket.h"
+
+1510688464 c:\users\willian\documents\willian\git\supermarketsimulator\supermarket.h
+	<conio.h>
+	<stdlib.h>
+	<math.h>
+	<stdio.h>
+
+1510688564 source:c:\users\willian\documents\willian\git\supermarketsimulator\main.c
+	<windows.h>
+	<stdio.h>
+	<conio.h>
+	<time.h>
+	"supermarket.h"
+

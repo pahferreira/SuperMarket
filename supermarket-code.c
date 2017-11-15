@@ -1,8 +1,4 @@
-#include <stdio.h>
 #include "supermarket.h"
-#include <conio.h>
-#include <stdlib.h>
-#include <math.h>
 
 void startBoxs(tlista * boxs){
     int i;
@@ -24,24 +20,21 @@ void imprimirFila(tlista box, int numBox){
     }
 }
 
-void inserir(tlista *boxs){
+void inserir(tlista *boxs, int * next){
     int i, menorFila, tamFila = 9999;
     int newID, prods;
     tno* novo;
-    /* Intializes random number generator */
-    //srand( (unsigned)time(NULL) );
 
-
-    /* Criando novo nó */
+    /// Criando novo nó
 
     novo = (tno*) malloc(sizeof(tno));
     prods = (rand() % 100)+1;
     novo->qtProd = prods;
-    novo->tempo = ceil(novo->qtProd * 0.30);
+    novo->tempo = ceil(novo->qtProd * 0.28);
     novo->prox = NULL;
-    //novo->ID = (boxs->caixa[menorFila].tam) + 1;
+    /// novo->ID = (boxs->caixa[menorFila].tam) + 1;
 
-    //Verificando a quantidade de produtos para ir ao caixa rápido
+    /// Verificando a quantidade de produtos para ir ao caixa rápido
     if (prods > 30){
         for(i=1; i < CAIXAS; i++){
             if(boxs->caixa[i].tam < tamFila) {
@@ -56,7 +49,7 @@ void inserir(tlista *boxs){
     }
     newID = (boxs->caixa[menorFila].endF) == NULL ? 0 : (boxs->caixa[menorFila].endF->ID);
     novo->ID =  newID + 1;
-   /*Fim da criação do nó */
+   /// Fim da criação do nó
 
    if(tamFila == 0)
     boxs->caixa[menorFila].startF = novo;
@@ -65,7 +58,7 @@ void inserir(tlista *boxs){
 
    boxs->caixa[menorFila].endF = novo;
    boxs->caixa[menorFila].tam++;
-
+   *next = (rand() % 4) + 1;
 }
 
 void countTime(tlista * boxs){
@@ -78,11 +71,11 @@ void countTime(tlista * boxs){
             boxs->caixa[i].startF->tempo--;
             if(boxs->caixa[i].startF->tempo == 0){
                 test = remover(&boxs->caixa[i]);
-                //Esse if é para o caso de remover um elemento, ou seja, ele ser atendido
-                //sendo atendido, todos os elementos da fila irão andar 1 casa, onde o segundo passa a ser o primeiro e etc...
-                //if (test = 1)
-                    //função feita para fazer a fila andar, foi comentada e usada outra abordagem por ter ficado confuso
-                    //alterar(&boxs->caixa[i]);
+                /// Esse if é para o caso de remover um elemento, ou seja, ele ser atendido
+                /// sendo atendido, todos os elementos da fila irão andar 1 casa, onde o segundo passa a ser o primeiro e etc...
+                /// if (test = 1)
+                    /// função feita para fazer a fila andar, foi comentada e usada outra abordagem por ter ficado confuso
+                    /// alterar(&boxs->caixa[i]);
             }
         }
     }
