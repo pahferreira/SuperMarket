@@ -1,8 +1,8 @@
 ﻿# Super Market Simulator
 
 ## Descrição
-Um programa em C que simula clientes acessando filas de vários caixas em um supermercado.
-Ultima zipada por ser baixada [aqui]()
+Um programa em C que simula clientes acessando filas de vários caixas em um supermercado.  
+Última versão zipada por ser baixada [aqui](https://github.com/willabdon/SuperMarketSimulator/raw/master/SuperMarketSimulator.zip)
 
 ## Alunos Envolvidos
 * Paulo Henrique
