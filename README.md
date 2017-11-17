@@ -14,7 +14,7 @@ Um programa em C que simula clientes acessando filas de vários caixas em um sup
 ### Configurações gerais
 * Intervalo de chegada dos clientes [ok]
 * Tempo de atendimento dos clientes [ok]
-* Parametrizar tempos (#define) [ ]
+* Parametrizar tempos (#define) [ok]
 
 
 ### Informações dos clientes:
@@ -24,5 +24,5 @@ Um programa em C que simula clientes acessando filas de vários caixas em um sup
 * Quantidade de produtos [ok]
 
 ### Informações finais:
-* Número máximo de clientes na fila no período da simulação [ ]
-* Espera máxima experimentada por um dos clients [ ]
+* Número máximo de clientes na fila no período da simulação [ok]
+* Espera máxima experimentada por um dos clientes []
