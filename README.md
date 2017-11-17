@@ -25,4 +25,4 @@ Um programa em C que simula clientes acessando filas de vários caixas em um sup
 
 ### Informações finais:
 * Número máximo de clientes na fila no período da simulação [ok]
-* Espera máxima experimentada por um dos clientes []
+* Espera máxima experimentada por um dos clientes [ok]
