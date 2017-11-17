@@ -5,9 +5,11 @@
 #include <conio.h>
 #include <time.h>
 #include "supermarket.h"
+#define SIMULATION_TIME 720
+
 
 int main(){
-    int timer, next;
+    int timer, next, i;
     char opt;
     tlista boxs;
 
@@ -27,16 +29,12 @@ int main(){
     startBoxs(&boxs);
     inserir(&boxs, &next);
 
-    for(timer = 0; timer < 720; timer++){
+    for(timer = 0; timer < SIMULATION_TIME; timer++){
 
             if(next == 0)
                 inserir(&boxs, &next);
 
             system("cls");
-            printf("-------------------------------------------------------------------------------------------------\n");
-            printf("                                    SUPERT MARKET SIMULATOR                                      \n");
-            printf("-------------------------------------------------------------------------------------------------\n\n");
-            printf("_________________________________________________________________________________________________\n");
             printf("_________________________________________________________________________________________________\n");
             printf("   | Cx. R | "); imprimirFila(boxs, 1); printf("\n");
             printf("_________________________________________________________________________________________________\n\n");
@@ -57,10 +55,24 @@ int main(){
 
             countTime(&boxs);
             next--;
+            //getch();
+
     }
 
+    printf("\n-------------------------------------------------------------------------------------------------\n");
+    printf("                                         DADOS OBTIDOS                                           \n");
+    printf("-------------------------------------------------------------------------------------------------\n\n");
+    printf("* Tamanho maximo de fila *\n\n");
+    for(i = 0; i < CAIXAS; i++){
+        i == 0 ? printf("Cx. %c : ", 'R') : printf("Cx. %d : ", i);
+        printf("%d\n", boxs.maxSize[i]);
+    }
 
-
+    printf("\n* Tamanho de espera maxima *\n\n");
+    for(i = 0; i < CAIXAS; i++){
+        i == 0 ? printf("Cx. %c : ", 'R') : printf("Cx. %d : ", i);
+        printf("%d min\n", boxs.maxTime[i]);
+    }
 
 
     return 0;
