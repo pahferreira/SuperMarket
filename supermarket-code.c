@@ -1,5 +1,6 @@
 #include "supermarket.h"
 
+
 void startBoxs(tlista * boxs){
     int i;
 
@@ -7,11 +8,14 @@ void startBoxs(tlista * boxs){
         boxs->caixa[i].endF = NULL;
         boxs->caixa[i].startF = NULL;
         boxs->caixa[i].tam = 0;
+        boxs->logIDs[i] = 0;
+        boxs->maxSize[i] = 0;
+        boxs->maxTime[i] = 0;
+        boxs->waitingTime[i] = 0;
     }
 }
 
 void imprimirFila(tlista box, int numBox){
-    int i;
     numBox--;
 
     while (box.caixa[numBox].startF != NULL){
@@ -21,22 +25,24 @@ void imprimirFila(tlista box, int numBox){
 }
 
 void inserir(tlista *boxs, int * next){
-    int i, menorFila, tamFila = 9999;
-    int newID, prods;
+    int i, menorFila = 0, tamFila = 9999;
+    int prods, boxTest = 2;
     tno* novo;
 
-    /// Criando novo nó
+    boxTest = aberturaCaixa(*boxs, boxTest);
+
+    /// Criando novo nÃ³
 
     novo = (tno*) malloc(sizeof(tno));
     prods = (rand() % 100)+1;
     novo->qtProd = prods;
-    novo->tempo = ceil(novo->qtProd * 0.28);
+    novo->tempo = ceil(novo->qtProd * PROC_PROD);
     novo->prox = NULL;
-    /// novo->ID = (boxs->caixa[menorFila].tam) + 1;
 
-    /// Verificando a quantidade de produtos para ir ao caixa rápido
-    if (prods > 30){
-        for(i=1; i < CAIXAS; i++){
+
+    /// Verificando a quantidade de produtos para ir ao caixa rÃ¡pido
+    if (prods > CR_LIMIT){
+        for(i=1; i < CAIXAS-boxTest; i++){
             if(boxs->caixa[i].tam < tamFila) {
                 tamFila = boxs->caixa[i].tam;
                 menorFila = i;
@@ -47,9 +53,13 @@ void inserir(tlista *boxs, int * next){
         menorFila = 0;
         tamFila = boxs->caixa[0].tam;
     }
-    newID = (boxs->caixa[menorFila].endF) == NULL ? 0 : (boxs->caixa[menorFila].endF->ID);
-    novo->ID =  newID + 1;
-   /// Fim da criação do nó
+
+    novo->ID =  ++boxs->logIDs[menorFila];
+
+    if(boxs->waitingTime[menorFila] > boxs->maxTime[menorFila])
+        boxs->maxTime[menorFila] = boxs->waitingTime[menorFila];
+    boxs->waitingTime[menorFila] += novo->tempo;
+   /// Fim da criaÃ§Ã£o do nÃ³
 
    if(tamFila == 0)
     boxs->caixa[menorFila].startF = novo;
@@ -63,22 +73,20 @@ void inserir(tlista *boxs, int * next){
 
 void countTime(tlista * boxs){
     int i;
-    int test;
 
     for(i=0; i < CAIXAS; i++){
-        test = 0;
+
         if(boxs->caixa[i].startF != NULL){
             boxs->caixa[i].startF->tempo--;
+            boxs->waitingTime[i]--;
             if(boxs->caixa[i].startF->tempo == 0){
-                test = remover(&boxs->caixa[i]);
-                /// Esse if é para o caso de remover um elemento, ou seja, ele ser atendido
-                /// sendo atendido, todos os elementos da fila irão andar 1 casa, onde o segundo passa a ser o primeiro e etc...
-                /// if (test = 1)
-                    /// função feita para fazer a fila andar, foi comentada e usada outra abordagem por ter ficado confuso
-                    /// alterar(&boxs->caixa[i]);
+                remover(&boxs->caixa[i]);
             }
         }
+
     }
+
+    maxRowSize(boxs);
 }
 
 int remover(tfila * caixa){
@@ -98,12 +106,30 @@ int remover(tfila * caixa){
 
     return 1;
 }
-void alterar(tfila *caixa){
-    tno *aux;
-    aux = caixa->startF;
-    while (aux != NULL){
-        aux->ID = (aux->ID) - 1;
-        aux = aux->prox;
+
+
+void maxRowSize(tlista * boxs){
+    int i;
+
+    for(i = 0; i < CAIXAS; i++){
+        if(boxs->caixa[i].tam > boxs->maxSize[i])
+            boxs->maxSize[i] = boxs->caixa[i].tam;
     }
 }
 
+int aberturaCaixa(tlista boxs, int test){
+    int i, tamTotal = 0;
+
+
+    for(i = 1; i < CAIXAS - test; i++){
+        tamTotal += boxs.caixa[i].tam;
+    }
+
+    if(tamTotal < 9){
+        return 2;
+    } else if(tamTotal < 12){
+        return 1;
+    } else{
+        return 0;
+    }
+}
