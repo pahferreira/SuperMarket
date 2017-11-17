@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
+#define PROC_PROD 0.20
+#define CR_LIMIT 25
+#define SIMULATION_TIME 720
 
 
 typedef struct no{
@@ -20,6 +23,10 @@ typedef struct{
 typedef struct{
     tfila caixa[CAIXAS];
     int IdCaixa;
+    int logIDs[CAIXAS];
+    int maxSize[CAIXAS];
+    int maxTime[CAIXAS];
+    int waitingTime[CAIXAS];
 } tlista;
 
 
@@ -28,4 +35,5 @@ void imprimirFila(tlista box, int numBox);
 void inserir(tlista * boxs, int * next);
 int remover(tfila * caixa);
 void countTime(tlista * boxs);
-void alterar(tfila * caixa);
+int aberturaCaixa(tlista boxs, int test);
+void maxRowSize(tlista * boxs);
