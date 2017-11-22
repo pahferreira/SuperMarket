@@ -1,0 +1,123 @@
+# depslib dependency file v1.0
+1510199549 source:c:\users\home\documents\willian\ed\supermarket\main.c
+	<stdio.h>
+	<windows.h>
+	<stdlib.h>
+	"supermarket.h"
+
+1510199177 source:c:\users\home\documents\willian\ed\supermarket\supermarket-code.c
+	<stdio.h>
+	"supermarket.h"
+	<conio.h>
+	<stdlib.h>
+	<math.h>
+
+1510202546 c:\users\home\documents\willian\ed\supermarket\supermarket.h
+
+1510256608 source:c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket\main.c
+	<stdio.h>
+	<windows.h>
+	<stdlib.h>
+	"supermarket.h"
+
+1510256958 c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket\supermarket.h
+
+1510256452 source:c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket\supermarket-code.c
+	<stdio.h>
+	"supermarket.h"
+	<conio.h>
+	<stdlib.h>
+	<math.h>
+
+1510256608 source:c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket_clientes_ordenados\main.c
+	<stdio.h>
+	<windows.h>
+	<stdlib.h>
+	"supermarket.h"
+
+1510256958 c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket_clientes_ordenados\supermarket.h
+
+1510420688 source:c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket_clientes_ordenados\supermarket-code.c
+	<stdio.h>
+	"supermarket.h"
+	<conio.h>
+	<stdlib.h>
+	<math.h>
+
+1510599192 source:e:\supermarket\main.c
+	<stdio.h>
+	<windows.h>
+	<stdlib.h>
+	"supermarket.h"
+
+1510253360 e:\supermarket\supermarket.h
+
+1510599112 source:e:\supermarket\supermarket-code.c
+	<stdio.h>
+	"supermarket.h"
+	<conio.h>
+	<stdlib.h>
+	<math.h>
+
+1510625251 source:c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket\supermarket_caixa_rápido\supermarket-code.c
+	<stdio.h>
+	"supermarket.h"
+	<conio.h>
+	<stdlib.h>
+	<math.h>
+
+1510621952 c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket\supermarket_caixa_rápido\supermarket.h
+
+1510622157 source:c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket\supermarket_caixa_rápido\main.c
+	<stdio.h>
+	<windows.h>
+	<stdlib.h>
+	"supermarket.h"
+
+1510622157 source:c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket\supermarket_caixa_rápido_nice\main.c
+	<stdio.h>
+	<windows.h>
+	<stdlib.h>
+	"supermarket.h"
+
+1510621952 c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket\supermarket_caixa_rápido_nice\supermarket.h
+
+1510626711 source:c:\users\paulo henrique\documents\ifpb\estrutura de dados\supermarket\supermarket_caixa_rápido_nice\supermarket-code.c
+	<stdio.h>
+	"supermarket.h"
+	<conio.h>
+	<stdlib.h>
+	<math.h>
+
+1510687850 source:c:\users\willian\documents\willian\git\supermarketsimulator\supermarket-code.c
+	"supermarket.h"
+
+1510688464 c:\users\willian\documents\willian\git\supermarketsimulator\supermarket.h
+	<conio.h>
+	<stdlib.h>
+	<math.h>
+	<stdio.h>
+
+1510688564 source:c:\users\willian\documents\willian\git\supermarketsimulator\main.c
+	<windows.h>
+	<stdio.h>
+	<conio.h>
+	<time.h>
+	"supermarket.h"
+
+1510969997 source:c:\github\super_market\main.c
+	<windows.h>
+	<stdio.h>
+	<conio.h>
+	<time.h>
+	"supermarket.h"
+
+1510969997 c:\github\super_market\supermarket.h
+	<conio.h>
+	<stdlib.h>
+	<math.h>
+	<stdio.h>
+
+1510969997 source:c:\github\super_market\supermarket-code.c
+	"supermarket.h"
+
